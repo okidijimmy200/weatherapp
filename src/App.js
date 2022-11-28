@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Search from "./components/search/search";
+import Display from "./components/display/display";
+import List from "./components/list/list";
+import Page from "./container/page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="px-60 py-0 m-12">
+      <div className="mx-0 my-0 h-[38rem] rounded-[0.8rem] border-dotted border-2 p-[2rem]">
+          <h1 className="text-center text-[#000] text-[1.6rem]">Weather App</h1>
+          <Page />
+          <List />
+      </div>
     </div>
   );
 }
