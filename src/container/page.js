@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Display from '../components/display/display'
-import Search from '../components/search/search'
+import List from '../components/list/list'
+import {Search} from '../components/search/search'
 
 export default function Page() {
     const [values, setValues] = useState({
@@ -11,8 +12,9 @@ export default function Page() {
       })
   return (
     <div>
-        <Search setValues={setValues} values={values} />
-        <Display values={values}/>
+        <Search setValues={setValues} values={values} />        
+        <Display values={values} />
+        <List values={values} />
     </div>
   )
 }
