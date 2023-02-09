@@ -1,18 +1,16 @@
 import React, {useState} from 'react'
 import Display from '../components/display/display'
 import List from '../components/list/list'
-import {Search} from '../components/search/search'
+import SearchContainer from './searchContainer'
 
 export default function Page() {
     const [values, setValues] = useState({
         city: '',
-        country: '',
-        results: [],
-        searched: false
+        country: ''
       })
   return (
     <div>
-        <Search setValues={setValues} values={values} />        
+        <SearchContainer setValues={setValues} values={values} />        
         <Display values={values} />
         <List values={values} />
     </div>

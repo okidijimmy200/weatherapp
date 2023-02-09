@@ -1,15 +1,19 @@
 {
   "name": "weather-app",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "axios": "^1.3.2",
+    "loaders.css": "^0.1.2",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-loaders": "^3.0.1",
+    "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -19,6 +23,11 @@
     "test": "react-scripts test --updateSnapshot",
     "eject": "react-scripts eject",
     "cypress": "cypress open --config-file cypress.config.js --e2e"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +52,9 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.13",
     "cypress": "^11.2.0",
+    "jest-mock-axios": "^4.7.0-beta4",
     "postcss": "^8.4.19",
+    "redux-mock-store": "^1.5.4",
     "tailwindcss": "^3.2.3"
   }
 }
