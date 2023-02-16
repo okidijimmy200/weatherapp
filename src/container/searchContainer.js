@@ -6,14 +6,14 @@ import { weather} from '../features/search/weather'
 
 export default function SearchContainer({setValues, values={}}) {
   const [loading, setLoading] = useState(false)
-  const [storage, setStorage] = useState([])
+
 
   const dispatch = useDispatch()
 
   const {geocodeValue} = useSelector(
     (state) => state.geocode
   )
-
+  
   useEffect(() => {
     if (geocodeValue && geocodeValue.length>0) {
       const data = [geocodeValue[0]]
@@ -25,7 +25,9 @@ export default function SearchContainer({setValues, values={}}) {
       dispatch(weather(cords))
       setLoading(false)
       setValues(preValues =>({...preValues, city: '', country: ''}))
+      // setStorage(geoData)
   }
+  // eslint-disable-next-line
   }, [dispatch, geocodeValue, setValues])
 
   const clickSubmit = (e) => {
@@ -40,9 +42,21 @@ export default function SearchContainer({setValues, values={}}) {
 
     dispatch(geocode(searchUser))
   }
+
+  const prevSearch = (e) => {
+    setLoading(true)
+    const data_1 = e.currentTarget.textContent.split(", ");
+    const searchUser = {
+      /**nullish coalising for handling objects*/
+      city: data_1[0],
+      country: data_1[1]
+    }
+    dispatch(geocode(searchUser))
+    
+  }
   return (
     <>
-    <Search clickSubmit={clickSubmit} setValues values={values} storage={storage} loading={loading}/>
+    <Search clickSubmit={clickSubmit} setValues={setValues} values={values} loading={loading} prevSearch={prevSearch}/>
     </>
   )
 }

@@ -13,13 +13,19 @@ const geolocation = async(params) => {
         })
 
         if (response.data) {
-            // let localCart = localStorage.getItem('data')
-            // let temp = []
-            // if (localCart !== null) {
-            // temp = [...JSON.parse(localCart)]
-            // }
-            // temp.push([response.data[0].name, response.data[0].state])
-            // localStorage.setItem('data', JSON.stringify(temp));
+            let localCart = localStorage.getItem('data')
+            let temp = []
+            if (localCart !== null) {
+                temp = [...JSON.parse(localCart)]
+            }
+            const codes = {
+                name: response.data[0].name,
+                country: response.data[0].country
+              }
+            temp.push(codes)
+            localStorage.setItem('data', JSON.stringify(temp));
+
+            console.log(response.data[0])
             // console.log(response.data)
             return response.data
         }

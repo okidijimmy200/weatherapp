@@ -1,12 +1,9 @@
 import React from 'react'
+import ButtonContainer from '../../container/buttonContainer'
 
-const Search = ({
-  clickSubmit,
-  setValues,
-  values, storage, loading}) => {
+const Search = ({clickSubmit, setValues, values, loading, prevSearch}) => {
 
     const handleChange = name => event => {
-
       setValues({
         ...values, [name]: event.target.value
       })
@@ -21,18 +18,7 @@ const Search = ({
               <button onClick={clickSubmit} disabled={loading}>Search</button>
               </div>
         </form>
-        {storage === [] ? 
-        '' : <div>
-           <p>Previous search results</p>
-          {storage.map((item, i) => {
-            return <div key={i}>
-              <div className="rounded-lg bg-slate-500 text-white p-2 mb-2 cursor-pointer" >
-              <button>{item[0]}, {item[1]}</button>
-              </div>
-              
-            </div>
-          })}
-          </div>}
+        <ButtonContainer prevSearch={prevSearch}/>
         
       {loading ? 
     <div>Loading..... </div> : ''

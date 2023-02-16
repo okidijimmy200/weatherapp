@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <div>
         <SearchContainer setValues={setValues} values={values} />        
-        <Display values={values} />
+        <Display />
         <List values={values} />
     </div>
   )

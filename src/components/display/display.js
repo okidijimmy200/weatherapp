@@ -1,21 +1,23 @@
 import React from 'react'
 import { WiDegrees } from 'react-icons/wi'
 import { FaCloudsmith } from 'react-icons/fa'
+import {useSelector} from 'react-redux'
 
 
-export default function Display({results, time, isSuccess}) {
-
+export default function Display() {
+  const {results, isSuccess} = useSelector((state) => state.weather)
+  
+  const current = new Date();
+  const time = current.toLocaleTimeString("en-US");
   return (
     <>
     {isSuccess ? 
         <div className='py-2 px-4 bg-slate-300 rounded-lg'>
-          {/* {results.map((results, i) => { */}
              <div >
               <div>           
                       <h2>{results.name}, {results.sys.country}. Weather</h2>
                       <p>As of {time}  {results.weather.main}</p>
                   </div>
-                  <div>test case test</div>
                   {results.weather.map((val, i) => {
                   return <div key={i}>
                       <div className='py-4 px-8 text-7xl text-center'>
@@ -50,3 +52,13 @@ export default function Display({results, time, isSuccess}) {
     </>
   )
 }
+
+
+// display is the component to test, pass in the provider and you can pass in initial state
+// render(<Provider store={mockStore}>
+//     <Display {...params}/>
+// </Provider>)
+
+//
+// https://reactjs.org/docs/thinking-in-react.html
+//

@@ -10,11 +10,11 @@ const mockStore = configureStore()
 
 const weatherStore = mockStore(initialState)
 
+// we need to test logic not html content, so not necessary
+
 test('check weather app', () => {
   render(
-    <Provider store={weatherStore}>
         <App />
-    </Provider>
 
   );
   const linkElement = screen.getByText(/Weather App/i);

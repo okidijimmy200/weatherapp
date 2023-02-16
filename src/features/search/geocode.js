@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { geolocation } from './apis'
 
+// get results from localstorage
 
 const initialState = {
     geocodeValue: null,
