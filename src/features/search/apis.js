@@ -25,8 +25,6 @@ const geolocation = async(params) => {
             temp.push(codes)
             localStorage.setItem('data', JSON.stringify(temp));
 
-            console.log(response.data[0])
-            // console.log(response.data)
             return response.data
         }
     }

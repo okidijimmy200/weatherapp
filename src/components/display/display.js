@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 
 export default function Display() {
   const {results, isSuccess} = useSelector((state) => state.weather)
+  console.log(results)
   
   const current = new Date();
   const time = current.toLocaleTimeString("en-US");
